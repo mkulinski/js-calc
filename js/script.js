@@ -9,9 +9,11 @@ $(document).ready(function(){
     //puts numbers on the screen
     $('.num').click(function() {
        var number = $(this).val();
+
         $('.showNum').val($('.showNum').val() + number);
     });
 
+    //allows you to subtract numbers
     $('.minus').click(function() {
         if ($('.showNum').hasClass('ready')){
             secondNum = parseInt($('.showNum').val());
@@ -26,6 +28,7 @@ $(document).ready(function(){
         }
     });
 
+    //allows you to add numbers
     $('.plus').click(function() {
         if ($('.showNum').hasClass('ready')){
             secondNum = parseInt($('.showNum').val());
@@ -39,6 +42,7 @@ $(document).ready(function(){
         }
     });
 
+    //allows you to multiply numbers
     $('.mult').click(function() {
         if ($('.showNum').hasClass('ready')){
             secondNum = parseInt($('.showNum').val());
@@ -52,6 +56,7 @@ $(document).ready(function(){
         }
     });
 
+    //allows you to divide numbers
     $('.divide').click(function() {
         if ($('.showNum').hasClass('ready')){
             secondNum = parseInt($('.showNum').val());
@@ -65,13 +70,10 @@ $(document).ready(function(){
         }
     });
 
-    $('.op').click(function() {
-        var lastClick = $(this).val();
-        $('.lastOp').val(lastClick);
-    });
-
+    //uses the last operator to decide what to do with the two numbers entered
     $('.equals').click(function() {
         secondNum = parseInt($('.showNum').val());
+
         $('.showNum').removeClass('ready');
         if ($('.lastOp').val() == '-'){
             total = firstNum - secondNum;
@@ -88,7 +90,18 @@ $(document).ready(function(){
         }
     });
 
+    //clears the screen
+    $('.clear').click(function() {
+        firstNum = 0;
+        secondNum = 0;
+        total = 0;
+        $('.showNum').val('');
+    });
 
-
+    //keeps track of the last operator clicked
+    $('.op').click(function() {
+        var lastClick = $(this).val();
+        $('.lastOp').val(lastClick);
+    });
 
 });
